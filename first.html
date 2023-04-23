@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+	<style>
+		body {
+			background-image: url("forest.jpeg");
+			background-size: cover;
+			background-position: center;
+			font-family: Arial, sans-serif;
+		}
+		.message-box {
+           background-color: #f0f0f0;
+         border: 10px solid #565555;
+		padding: 10px;
+		color: black;
+		margin-left: 250px ;
+		margin-right: 250px;
+		width: 900px;
+		height: 80px;
+		font-size: 1.5rem;
+}
+		h1 {
+			color: rgb(251, 239, 6);
+			font-size: 2rem;
+			text-align: center;
+			margin-top: 50px;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+		
+		.sub {display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		} 
+		label {
+			color: rgb(248, 241, 241);
+			font-size: 2rem;
+			margin-bottom: 20px;
+		}
+		input[type="text"] {
+			font-size: 1.5rem;
+			padding: 10px;
+			border-radius: 5px;
+			width: 20%;
+			border: none;
+			outline: none;
+			display: flex;
+			margin: 0 auto;
+			/* align-items: center;
+			text-align: center; */
+			background-color: rgba(246, 247, 249, 0.7);
+		}
+		input[type="submit"] {
+			font-size: 1.5rem;
+			padding: 10px 20px;
+			border-radius: 5px;
+			border: none;
+			outline: none;
+			background-color: #4CAF50;
+			color: rgb(53, 30, 30);
+			cursor: pointer;
+			transition: all 0.2s ease-in-out;
+			align-items: center;
+			margin: 0,auto;
+			margin-top: 20px;
+		}
+		input[type="submit"]:hover {
+			background-color: #fbf1f1;
+		}
+		h2{
+			align-items: flex-end;
+			color: #4CAF50;
+			background-color: rgba(246, 247, 249, 0.7);
+         /* border: 10px solid #565555; */
+		padding: 10px;
+		color: black;
+		margin-left: 5px ;
+		margin-right: 250px;
+		width: 90px;
+		height: 25px;
+		}
+		
+	</style>
+</head>
+<body>
+	<h1><b>All the best</h1></b>
+	<h2>Level-1</h2>
+	<form onsubmit="checkAnswer(event)">
+		<label for="answer">
+			<div><p class="message-box">
+			  
+			  I am a word of six letters, but when you take away one letter, I become twelve. What am I? 
+			  The answer will help you find the next location on your journey to the treasure.</p>
+			</label>
+			</div>
+	<input type="text" id="answer" name="answer" placeholder="Type your answer here" autofocus />
+		<div class="sub"><input type="submit" value="Submit" /> </div>
+	    <p id="message"></p>
+	</form>
+	<script>
+		function checkAnswer(event) {
+			event.preventDefault();
+			const answer = document.getElementById("answer").value.toLowerCase();
+			if (answer === "dozens") {
+				window.location.href = "first1.html";
+			} else {
+				
+		   
+				document.getElementById("message").innerHTML = "Sorry, that's not the correct answer. Please try again.";
+		
+				//alert("Sorry, that's not the correct answer. Please try again.");
+			}
+		}
+
+		document.addEventListener("keydown", function(event) {
+			if (event.code === "Space") {
+				event.preventDefault();
+				checkAnswer(event);
+			}
+		});
+	</script>
+</body>
+</html>
