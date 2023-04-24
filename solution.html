@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const yesBtn = document.getElementById("yes-btn");
+const noBtn = document.getElementById("no-btn");
+
+yesBtn.addEventListener("click", () => {
+  window.location.href = "level-2.html";
+});
+
+noBtn.addEventListener("click", () => {
+  window.location.href = "game-over.html";
+});
+
+    </script>
+
+ <style>
+    body{
+        /* background-image: url("congrats-2.gif"); */
+        background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+
+    }
+    #message {
+   /* text-align: center;  */
+  margin-top: 50px;
+  color: rgb(10, 10, 10);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular';
+  
+}
+
+#message h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#message p {
+  font-size: 30px;
+  margin: 4px 0;
+  text-align: left;
+
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-size: 25px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #c6f608;
+  color: rgb(249, 244, 244);
+  border: none;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+button:active {
+  background-color: #4f06f8;
+  transform: translateY(2px);
+}
+
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+  </style>
+  </head>
+
+  <body >
+    <div id="message">
+        <h1>solution to the code </h1>
+        <p> <div>Solution to Open the lock riddle with clues including 682
+
+            Clue 1: by itself cannot help in making any conclusion, but from clue 2 combined with clue 1, get the first result,</div>
+
+           <div> Conclusion 1:</div> Digit 6 is not the right digit in 682, and,
+
+            <div>
+
+            Either 8 or 2 is the right digit in the right place in 682. Skip 3rd clue on code 206 and move on to the 4th clue on 738. 
+            Discover, among the three, digit 8 is also wrong.
+            Together with the first result conclude,
+        </div>
+            
+        <div>  Conclusion 2:</div> Digit 2 is the right digit and is in the right place in 682.
+           <div>
+
+            Back to the 3rd clue on 206 with two right digits, you know already—2 is a right digit and 6 is a wrong digit. So,</div>
+           
+            <div>Conclusion 3:</div> The third digit 0 must be a right digit and it must be in leftmost place of the three-digit code.
+            
+         <div>The code is in the form “0 ? 2”.</div>
+            
+            <div> the last clue to identify both 3 and 8 are wrong and 0 is right, but in the wrong place.
+             This doesn’t give any clue on the missing middle digit.When you look back,
+            You find 2nd clue still has untapped information with rest of the clues exhausted of their potential.
+            Already known in clue 2 on 614: Digit 6 is wrong.</div>
+            
+            <div>Conclusion 4: </div>So digit 1 or 4 is the right digit.
+           
+            <div>Recall now that only the middle position in the code is still to be filled.
+            Final reasoning: As digit 1 holds this second middle position in 614 and the clue says,
+             “the right digit is in the wrong place”, digit 1 must be wrong.</div>
+             Finally,
+            
+             <div>Conclusion 5:</div> Digit 4 turns out to be the right digit in the wrong place in 614 and the code is 042.<p>
+        <h2>Do you want to continue?</h2>
+        <div class="button-container">
+          <button id="yes-btn"><a href="end.html">Yes</a</button>
+          <button id="no-btn"><a href="signup.html">No</a></button>
+        </div>
+      </div>
+      
+  </body>
+  </html>
+  
