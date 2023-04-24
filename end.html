@@ -11,6 +11,10 @@
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   color: #0c67ae;
+  background-image:url("plain.jpg");
+  background-repeat: no-repeat;
+   background-size: cover;  
+
 }
 
 #title {
@@ -57,7 +61,15 @@
   grid-template-rows: repeat(3, 1fr);
   gap: 4px;
 }  */
-
+p{
+  margin-left: 80%;
+  text-align: center;
+  width: 250px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: #0c67ae;
+  color: aliceblue;
+}
 #submit-btn{
     
 			background-color: #15e2d5;
@@ -74,11 +86,14 @@
 </style>
    </head>
  <body>
+
+  <p> Solve this to find the treasure</p>
     <img id="title" src="title.jpg">
+   
         <div id="board">
 
         </div>
-        <button id="submit-btn" onclick="checkAnswer()"><a href="winpg.html">Submit</a></button>
+        <button id="submit-btn" onclick="funny()">Submit</button>
 
         <h1>Turns: <span id="turns">0</span></h1>
 <script>
@@ -91,7 +106,9 @@ var otherTile; //blank tile
 var turns = 0;
 
 var solution = ["9", "8", "7", "6", "5", "4", "3", "2", "1"];
-var imgOrder = ["6", "8", "2", "5", "9", "4", "3", "1", "7"];
+ var imgOrder = ["6", "8", "2", "5", "9", "4", "3", "1", "7"];
+
+
 
 
 window.onload = function() {
@@ -100,9 +117,11 @@ window.onload = function() {
 
             //<img id="0-0" src="1.jpeg">
            //<img id="0-0" src="1.jpeg">
+          var temp = imgOrder.shift();
            let tile = document.createElement("img");
+           tile.val = temp;
             tile.id = r.toString() + "-" + c.toString();
-            tile.src = imgOrder.shift() + ".jpeg";
+            tile.src = temp + ".jpeg";
 
 
             //DRAG FUNCTIONALITY
@@ -145,7 +164,8 @@ function dragEnd() {
     if (!otherTile.src.includes("7.jpeg")) {
         return;
     }
-
+     let index = ["6", "8", "2", "5", "9", "4", "3", "1", "7"];
+   
     let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]
     let r = parseInt(currCoords[0]);
     let c = parseInt(currCoords[1]);
@@ -153,24 +173,52 @@ function dragEnd() {
     let otherCoords = otherTile.id.split("-");
     let r2 = parseInt(otherCoords[0]);
     let c2 = parseInt(otherCoords[1]);
-
     let moveLeft = r == r2 && c2 == c-1;
     let moveRight = r == r2 && c2 == c+1;
 
     let moveUp = c == c2 && r2 == r-1;
     let moveDown = c == c2 && r2 == r+1;
-
     let isAdjacent = moveLeft || moveRight || moveUp || moveDown;
+    if (moveLeft) {
+      index[r*3 + 1] = Number(index[r*3 + c]) + 1;
+      console.log(index[r*3 + c]);
+    }
+    if (moveRight) {
+      index[r*3 + 1] = Number(index[r*3 + c]) - 1;
+      console.log(index[r*3 + c]);
+    }
+    if (moveUp) {
+      index[r*3 + 1] = Number(index[r*3 + c]) + 3;
+      console.log(index[r*3 + c]);
+    }
+    if (moveDown) {
+      index[r*3 + 1] = Number(index[r*3 + c]) - 3;
+      console.log(index[r*3 + c]);
+    }
 
     if (isAdjacent) {
         let currImg = currTile.src;
       let otherImg = otherTile.src;
-    
         currTile.src = otherImg;
         otherTile.src = currImg;
         turns += 1;
         document.getElementById("turns").innerText = turns;
     }
+    var isTrue = true;
+    for (let i=1; i<=9; i=i+1) {
+      if (solution[i] != index[i]) {
+        isTrue = false;
+        break;
+      }
+    }
+    if (isTrue) {
+      document.getElementById("submit-btn").addEventListener("click", funny);
+      function funny() {
+        window.location.href = "congpg2.html";
+      }
+    }
+   
+    
 
 }
  

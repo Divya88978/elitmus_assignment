@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lock Code Crack</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url("lock1.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    /* margin-top: 50px; */
+}
+
+#lockContainer {
+    display: inline-block;
+    margin-top: 50px;
+}
+
+#hintContainer {
+    margin-bottom: 10px;
+    font-size:30px;
+    font-style: italic;
+    color: azure;
+    /* margin-top: 0%; */
+    text-align: left;
+}
+
+input {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+button {
+    margin-top: 50px;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+p#result {
+    margin-top: 30px;
+    font-size: 18px;
+}
+#lockboxcontainer{
+margin-top: 90%;
+}
+h2{
+    align-items:left;
+    width: 15%;
+    height: 25px;
+    color: black;
+    background-color: green;
+
+}
+    </style>
+</head>
+<body >
+    <h1>Lock Code Crack</h1>
+    <h2>Level-3</h2>
+    <div id="lockContainer">
+       <div id="hintContainer">
+            <p id="hint1">Hint 1:  682 - One digit is right and in its place.                </p>
+            <p id="hint2">Hint 2:  614 - One digit is right but in the wrong place.           </p>
+            <p id="hint3">Hint 3:  206 - Two digits are right but both are in the wrong place.</p>
+            <p id="hint4">Hint 4:  738 - All digits are wrong.                                 </p>
+            <p id="hint5">Hint 5:  380 - One digit is right but in the wrong place.             </p>
+        </div>
+        <div id="lockBoxContainer">
+            <input type="number" id="input1" min="0" max="9" step="1" required>
+            <input type="number" id="input2" min="0" max="9" step="1" required>
+            <input type="number" id="input3" min="0" max="9" step="1" required>
+        </div>
+        <button id="submitBtn" >Submit</button>
+    </div>
+    <p id="result"></p>
+
+    <!-- <script src="script.js"></script> -->
+    <script>
+        const correctCode = "042";
+let attempts = 3;
+
+document.getElementById("submitBtn").addEventListener("click", function() {
+    const input1 = document.getElementById("input1").value;
+    const input2 = document.getElementById("input2").value;
+    const input3 = document.getElementById("input3").value;
+
+    if (input1 === correctCode[0] && input2 === correctCode[1] && input3 === correctCode[2]) {
+        document.getElementById("result").textContent = "Correct code! Moving to the next page...";
+        setTimeout(function() {
+            // Replace this with code to navigate to the next page
+            // alert("You cracked the code! Moving to the next page...");
+            window.location.href="end.html"
+        }, 1500);
+    } else {
+        attempts--;
+        if (attempts > 0) {
+            document.getElementById("result").textContent = `Incorrect code! You have ${attempts} attempt(s) remaining.`;
+        } else {
+            document.getElementById("result").textContent = "Out of attempts! Moving to another page...";
+            setTimeout(function() {
+                // Replace this with code to navigate to another page
+                // alert("Out of attempts! Moving to another page...");
+                window.location.href="solution.html";
+            });
+        }
+    }
+});
+
+    </script>
+</body>
+</html>
